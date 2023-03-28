@@ -1,10 +1,12 @@
 package com.example.cine.list_peliculas.view;
 
 import android.content.Context;
+import android.content.Intent;
 import android.service.autofill.Dataset;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -88,6 +90,7 @@ public class ListPeliculasAdapter extends RecyclerView.Adapter<ListPeliculasAdap
         private TextView nombre;
         private TextView categoria;
         private TextView valoracion;
+        private Button verPeli;
 
 
         public ViewHolder(View itemView) {
@@ -110,15 +113,22 @@ public class ListPeliculasAdapter extends RecyclerView.Adapter<ListPeliculasAdap
             nombre = itemView.findViewById(R.id.nombrePeli);
             categoria = itemView.findViewById(R.id.categoria);
             valoracion = itemView.findViewById(R.id.valoracion);
+            verPeli = itemView.findViewById(R.id.verPeli);
 
             nombre.setText(pelicula.getTitulo());
             categoria.setText(pelicula.getCategoria());
             valoracion.setText(Double.toString(pelicula.getValoracion()));
-            System.out.println(pelicula.getImagen());
+
 
 
             String ulrImage = generateUrl(pelicula.getImagen());
             Picasso.get().load(ulrImage).into(this.foto);
+
+            verPeli.setOnClickListener(view -> {
+                final Intent intent = new Intent(view.getContext(),);
+                intent.putExtra("id", pelicula.getIdPelicula());
+                view.getContext().startActivity(intent);
+            });
         }
     }
 }
