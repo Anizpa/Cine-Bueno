@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">cine</string>
+    <string name="drama">Drama</string>
+    <string name="musical">Musical</string>
+    <string name="accion">Accion</string>
+    <string name="top_10">Top 10</string>
+</resources>
