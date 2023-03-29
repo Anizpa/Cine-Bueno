@@ -23,7 +23,7 @@
 
             <TextView
                 android:id="@+id/nombrePeli"
-                android:layout_width="217dp"
+                android:layout_width="222dp"
                 android:layout_height="22dp"
                 android:layout_weight="1"
                 android:text="TextView"
@@ -33,13 +33,14 @@
 
             <TextView
                 android:id="@+id/valoracion"
-                android:layout_width="98dp"
+                android:layout_width="86dp"
                 android:layout_height="43dp"
                 android:layout_marginTop="1dp"
+                android:layout_marginLeft="7dp"
                 android:layout_marginBottom="52dp"
-                android:textSize="20sp"
-                android:textFontWeight="@integer/material_motion_duration_long_2"
                 android:text="TextView"
+                android:textFontWeight="@integer/material_motion_duration_long_2"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/nombrePeli"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -57,13 +58,15 @@
 
             <Button
                 android:id="@+id/verPeli"
-                android:layout_width="179dp"
-                android:layout_height="48dp"
+                android:layout_width="158dp"
+                android:layout_height="40dp"
                 android:layout_marginStart="68dp"
                 android:layout_marginEnd="68dp"
+                android:layout_marginBottom="4dp"
                 android:text="Ver pelicula"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 

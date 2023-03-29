@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cine.R;
 import com.example.cine.entities.Peliculas;
+import com.example.cine.find_peliculas.view.FindPeliculasActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -95,12 +96,6 @@ public class ListPeliculasAdapter extends RecyclerView.Adapter<ListPeliculasAdap
 
         public ViewHolder(View itemView) {
             super(itemView);
-
-            /*foto = itemView.findViewById(R.id.imagenPeli);
-            nombre = itemView.findViewById(R.id.nombrePeli);
-            categoria = itemView.findViewById(R.id.categoria);
-            valoracion = itemView.findViewById(R.id.valoracion);*/
-
         }
         public String generateUrl(String s) {
             String[] p = s.split("/");
@@ -125,7 +120,7 @@ public class ListPeliculasAdapter extends RecyclerView.Adapter<ListPeliculasAdap
             Picasso.get().load(ulrImage).into(this.foto);
 
             verPeli.setOnClickListener(view -> {
-                final Intent intent = new Intent(view.getContext(),);
+                final Intent intent = new Intent(view.getContext(), FindPeliculasActivity.class);
                 intent.putExtra("id", pelicula.getIdPelicula());
                 view.getContext().startActivity(intent);
             });
