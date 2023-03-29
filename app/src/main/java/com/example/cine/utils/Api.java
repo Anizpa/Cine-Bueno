@@ -1,11 +1,10 @@
 package com.example.cine.utils;
 
 
+import com.example.cine.entities.Cines;
 import com.example.cine.entities.PeliculaFicha;
 import com.example.cine.entities.Peliculas;
-import com.example.cine.entities.PeliculasRespuesta;
 import com.example.cine.entities.Sala;
-import com.example.cine.entities.SalaFicha;
 
 import java.util.List;
 
@@ -32,4 +31,10 @@ public interface Api {
 
     @GET("Salas/GETFICHA")
     Call<Sala> getSalaFicha(@Query("id") int idSala);
+
+    @GET("Cines/GETFICHA")
+    Call<List<Cines>> getCinesList();
+
+    @GET("/Entradas/add")
+    Call<String> addEntrada(@Query("idSala") int idSala, @Query("cantidad") int cantidad);
 }

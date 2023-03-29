@@ -66,13 +66,6 @@ public class ListPeliculasAdapter extends RecyclerView.Adapter<ListPeliculasAdap
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.setItem(this.peliculas.get(position));
-        /*Peliculas pelicula = peliculas.get(position);
-        holder.nombre.setText(pelicula.getTitulo());
-        holder.categoria.setText(pelicula.getCategoria());
-        holder.valoracion.setText(Double.toString(pelicula.getValoracion()));
-        Picasso.get().load(pelicula.getImagen()).into(holder.foto);*/
-
-
     }
 
     @Override

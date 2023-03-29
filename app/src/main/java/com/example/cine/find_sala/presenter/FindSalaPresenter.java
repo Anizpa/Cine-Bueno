@@ -1,7 +1,6 @@
 package com.example.cine.find_sala.presenter;
 
 import com.example.cine.entities.Sala;
-import com.example.cine.entities.SalaFicha;
 import com.example.cine.find_sala.FindSalaContract;
 import com.example.cine.find_sala.model.FindSalaModel;
 

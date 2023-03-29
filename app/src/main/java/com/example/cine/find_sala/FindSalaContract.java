@@ -1,7 +1,6 @@
 package com.example.cine.find_sala;
 
 import com.example.cine.entities.Sala;
-import com.example.cine.entities.SalaFicha;
 
 public interface FindSalaContract {
 
