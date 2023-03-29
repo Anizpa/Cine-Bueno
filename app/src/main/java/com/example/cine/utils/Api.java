@@ -4,6 +4,7 @@ package com.example.cine.utils;
 import com.example.cine.entities.PeliculaFicha;
 import com.example.cine.entities.Peliculas;
 import com.example.cine.entities.PeliculasRespuesta;
+import com.example.cine.entities.Sala;
 import com.example.cine.entities.SalaFicha;
 
 import java.util.List;
@@ -30,5 +31,5 @@ public interface Api {
     Call<PeliculaFicha> getPeliculaFicha(@Query("id") int idPelicula);
 
     @GET("Salas/GETFICHA")
-    Call<SalaFicha> getSalaFicha(@Query("idSala") int idSala);
+    Call<Sala> getSalaFicha(@Query("id") int idSala);
 }

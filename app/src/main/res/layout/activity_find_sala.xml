@@ -4,6 +4,242 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".findSala.view.FindSalaActivity">
+    android:background="#66FFFFFF"
+    tools:context=".find_sala.view.FindSalaActivity">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="322dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="Comprar Entradas"
+        android:textColor="#4C2491"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/cardView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="380dp"
+        android:layout_height="600dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="92dp"
+        android:layout_marginEnd="1dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="43dp"
+                android:layout_marginTop="212dp"
+                android:layout_marginEnd="71dp"
+                android:text="Butacas libres:"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/cineCompra"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view" />
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="43dp"
+                android:layout_marginTop="276dp"
+                android:layout_marginEnd="71dp"
+                android:text="Nº de entradas:"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/cineCompra"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view" />
+
+            <TextView
+                android:id="@+id/butacasCompra"
+                android:layout_width="145dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="40dp"
+                android:text="TextView"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/horarioCompra" />
+
+            <TextView
+                android:id="@+id/numeroEntradas"
+                android:layout_width="38dp"
+                android:layout_height="34dp"
+                android:layout_marginTop="78dp"
+                android:layout_marginEnd="144dp"
+                android:gravity="center"
+                android:text=""
+                android:textColor="#673AB7"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/horarioCompra" />
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="96dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="43dp"
+                android:layout_marginTop="156dp"
+                android:layout_marginEnd="71dp"
+                android:text="Horario:"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/cineCompra"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view" />
+
+            <TextView
+                android:id="@+id/horarioCompra"
+                android:layout_width="181dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="40dp"
+                android:text="TextView"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/salaCompra" />
+
+            <TextView
+                android:id="@+id/cineCompra"
+                android:layout_width="178dp"
+                android:layout_height="32dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginBottom="22dp"
+                android:text="TextView"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/salaCompra"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view" />
+
+            <TextView
+                android:id="@+id/salaCompra"
+                android:layout_width="182dp"
+                android:layout_height="34dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="40dp"
+                android:text="TextView"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cineCompra" />
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="96dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="43dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="71dp"
+                android:text="Sala:"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/cineCompra"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+            <TextView
+                android:id="@+id/tituloCompra"
+                android:layout_width="274dp"
+                android:layout_height="59dp"
+                android:layout_marginStart="64dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="69dp"
+                android:gravity="center"
+                android:text="TextView"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="300dp"
+                android:layout_height="1dp"
+                android:layout_marginBottom="504dp"
+                android:background="#673AB7"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="96dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="43dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="71dp"
+                android:text="Cine:"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/cineCompra"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view" />
+
+            <Button
+                android:id="@+id/btnComprar"
+                android:layout_width="229dp"
+                android:layout_height="62dp"
+                android:layout_marginStart="156dp"
+                android:layout_marginEnd="159dp"
+                android:layout_marginBottom="68dp"
+                android:text="Comprar entradas"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <ImageButton
+                android:id="@+id/menos"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="14dp"
+                android:src="@drawable/ic_launcher_foreground"
+                app:layout_constraintEnd_toStartOf="@+id/mas"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/numeroEntradas"
+                app:layout_constraintTop_toBottomOf="@+id/butacasCompra" />
+
+            <ImageButton
+                android:id="@+id/mas"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="32dp"
+                android:src="@drawable/ic_launcher_foreground"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/butacasCompra" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.example.cine.find_sala.model;
 
+import com.example.cine.entities.Sala;
 import com.example.cine.entities.SalaFicha;
 import com.example.cine.find_sala.FindSalaContract;
 import com.example.cine.utils.Api;
@@ -24,16 +25,16 @@ public class FindSalaModel implements FindSalaContract.Model {
     private void getSalaFicha(OnFindSalaListener onFindSalaListener) {
         Api apiPeliculas = peliculasApi.getPeliculasApi()
                 .create(Api.class);
-        Call<SalaFicha> salaFichaCall = apiPeliculas.getSalaFicha(idSala);
-        salaFichaCall.enqueue(new Callback<SalaFicha>() {
+        Call<Sala> salaFichaCall = apiPeliculas.getSalaFicha(idSala);
+        salaFichaCall.enqueue(new Callback<Sala>() {
             @Override
-            public void onResponse(Call<SalaFicha> call, Response<SalaFicha> response) {
-                SalaFicha salaFicha = response.body();
-                onFindSalaListener.onSuccess(salaFicha);
+            public void onResponse(Call<Sala> call, Response<Sala> response) {
+                Sala sala = response.body();
+                onFindSalaListener.onSuccess(sala);
             }
 
             @Override
-            public void onFailure(Call<SalaFicha> call, Throwable t) {
+            public void onFailure(Call<Sala> call, Throwable t) {
                 onFindSalaListener.onFailure("Error en la peticion " + t);
             }
         });

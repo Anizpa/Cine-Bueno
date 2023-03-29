@@ -11,6 +11,8 @@ public class Sala {
     private String horario;
     @SerializedName("butacas")
     private int butacas;
+    @SerializedName("titulo")
+    private String titulo;
 
     public int getIdSala() {
         return idSala;
@@ -42,5 +44,13 @@ public class Sala {
 
     public void setButacas(int butacas) {
         this.butacas = butacas;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 }
