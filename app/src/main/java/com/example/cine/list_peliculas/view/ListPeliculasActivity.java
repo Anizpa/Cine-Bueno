@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.SearchView;
@@ -12,10 +13,10 @@ import android.widget.Toast;
 import com.example.cine.R;
 import com.example.cine.entities.ListPeliculasRequest;
 import com.example.cine.entities.Peliculas;
+import com.example.cine.list_cines.view.ListCinesActivity;
 import com.example.cine.list_peliculas.ListPeliculasContract;
 import com.example.cine.list_peliculas.presenter.ListPeliculasPresenter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ListPeliculasActivity extends AppCompatActivity implements ListPeliculasContract.View, SearchView.OnQueryTextListener {
@@ -24,7 +25,7 @@ public class ListPeliculasActivity extends AppCompatActivity implements ListPeli
     private ListPeliculasAdapter listPeliculasAdapter;
     private RecyclerView recyclerView;
     private ListPeliculasRequest listPeliculasRequest;
-    private Button top10, drama, musical, accion;
+    private Button top10, drama, musical, accion, historico;
     SearchView txtBuscar;
 
     @Override
@@ -59,6 +60,11 @@ public class ListPeliculasActivity extends AppCompatActivity implements ListPeli
             listPeliculasPresenter.listPeliculas(listPeliculasRequest);
         });
 
+        historico.setOnClickListener(view -> {
+            final Intent intent = new Intent(view.getContext(), ListCinesActivity.class);
+            view.getContext().startActivity(intent);
+        });
+
         txtBuscar.setOnQueryTextListener(this);
 
 
@@ -74,6 +80,7 @@ public class ListPeliculasActivity extends AppCompatActivity implements ListPeli
         drama = findViewById(R.id.drama);
         musical = findViewById(R.id.musical);
         accion = findViewById(R.id.accion);
+        historico = findViewById(R.id.historico);
         txtBuscar = findViewById(R.id.searchView);
 
     }

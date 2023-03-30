@@ -1,22 +1,18 @@
 package com.example.cine.list_cines.view;
 
-import android.os.Bundle;
-import android.widget.SearchView;
-import android.widget.Toast;
+        import android.os.Bundle;
+        import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+        import androidx.appcompat.app.AppCompatActivity;
+        import androidx.recyclerview.widget.GridLayoutManager;
+        import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.cine.R;
-import com.example.cine.entities.Cines;
-import com.example.cine.entities.ListPeliculasRequest;
-import com.example.cine.list_cines.ListCinesContract;
-import com.example.cine.list_cines.presenter.ListCinesPresenter;
-import com.example.cine.list_peliculas.presenter.ListPeliculasPresenter;
-import com.example.cine.list_peliculas.view.ListPeliculasAdapter;
+        import com.example.cine.R;
+        import com.example.cine.entities.Cines;
+        import com.example.cine.list_cines.ListCinesContract;
+        import com.example.cine.list_cines.presenter.ListCinesPresenter;
 
-import java.util.List;
+        import java.util.List;
 
 
 public class ListCinesActivity extends AppCompatActivity implements ListCinesContract.View{
@@ -30,6 +26,11 @@ public class ListCinesActivity extends AppCompatActivity implements ListCinesCon
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_list_cines);
+
+        initComponents();
+        initPresenter();
+        initData();
 
     }
     private void initComponents(){

@@ -30,6 +30,7 @@ public class ListCinesModel implements ListCinesContract.Model{
             public void onResponse(Call<List<Cines>> call,
                                    Response<List<Cines>> response) {
                 //PeliculasRespuesta peliculasRespuesta = response.body();
+                System.out.println(response.body());
                 List<Cines> peliculasList = response.body();
                 onListCinesListener.onSuccess(peliculasList);
             }

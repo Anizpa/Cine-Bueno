@@ -21,6 +21,7 @@ import com.example.cine.find_sala.presenter.FindSalaPresenter;
 import com.example.cine.list_peliculas.view.ListPeliculasActivity;
 import com.example.cine.utils.Api;
 import com.example.cine.utils.peliculasApi;
+import com.google.gson.Gson;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -35,6 +36,7 @@ public class FindSalaActivity extends AppCompatActivity implements FindSalaContr
     private static int notificacion = 2202;
     private Button btnComprar;
     private int idSala;
+    private Sala salaCorreo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,8 +69,8 @@ public class FindSalaActivity extends AppCompatActivity implements FindSalaContr
 
     private void confirmarCompraWS(){
         Api peliApi = peliculasApi.getPeliculasApi().create(Api.class);
-
-        Call<String> entradaRespuestaCall = peliApi.addEntrada(idSala, cantidad);
+        Gson gson = new Gson();
+        Call<String> entradaRespuestaCall = peliApi.addEntrada(idSala, cantidad, gson.toJson(salaCorreo));
         entradaRespuestaCall.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
@@ -90,7 +92,7 @@ public class FindSalaActivity extends AppCompatActivity implements FindSalaContr
     private void showNotification(){
         createNotificationChannel();
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "id")
-                .setSmallIcon(androidx.constraintlayout.widget.R.drawable.abc_ic_star_black_16dp)
+                .setSmallIcon(androidx.constraintlayout.widget.R.drawable.notification_icon_background)
                 .setContentTitle("Compra Realizada")
                 .setContentText("Gracias por confiar en nuestra App (jaja)")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
@@ -134,6 +136,7 @@ public class FindSalaActivity extends AppCompatActivity implements FindSalaContr
 
     @Override
     public void successFindSala(Sala salas) {
+        salaCorreo = salas;
         titulo.setText(salas.getTitulo());
         cine.setText(salas.getNombreCine());
         sala.setText(Integer.toString(salas.getIdSala()));

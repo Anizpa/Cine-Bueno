@@ -18,7 +18,13 @@ import com.example.cine.entities.PeliculaFicha;
 import com.example.cine.entities.Sala;
 import com.example.cine.find_peliculas.FindPeliculasContract;
 import com.example.cine.find_peliculas.presenter.FindPeliculasPresenter;
+import com.example.cine.utils.Api;
+import com.example.cine.utils.peliculasApi;
 import com.squareup.picasso.Picasso;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class FindPeliculasActivity extends AppCompatActivity implements FindPeliculasContract.View {
 
@@ -29,6 +35,7 @@ public class FindPeliculasActivity extends AppCompatActivity implements FindPeli
     private TextView titulo, sinopsis, categoria, edad;
     private ImageView fotoTrailer;
     private RatingBar valoracion;
+    private int id;
 
 
     @Override
@@ -39,6 +46,13 @@ public class FindPeliculasActivity extends AppCompatActivity implements FindPeli
         initComponents();
         initPresenter();
         initData();
+
+        valoracion.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
+                puntuarPeliculaWS(v, id);
+            }
+        });
     }
 
     private void initComponents() {
@@ -62,7 +76,6 @@ public class FindPeliculasActivity extends AppCompatActivity implements FindPeli
     }
 
     private void initData() {
-        System.out.println(getIntent().getExtras().getInt("id"));
         findPeliculasPresenter.findPeliculas(getIntent().getExtras().getInt("id"));
     }
     public String generateUrl(String s) {
@@ -86,7 +99,7 @@ public class FindPeliculasActivity extends AppCompatActivity implements FindPeli
 
         findPeliculasAdapter.addSalas(fichaPelicula.getSalas());
 
-
+        id = fichaPelicula.getIdPelicula();
         String ulrImage = generateUrl(fichaPelicula.getImagen());
         Picasso.get().load(ulrImage).into(this.fotoTrailer);
     }
@@ -95,4 +108,22 @@ public class FindPeliculasActivity extends AppCompatActivity implements FindPeli
     public void failureFindPeliculas(String err) {
         Toast.makeText(getApplicationContext(), err, Toast.LENGTH_SHORT).show();
     }
+
+    private void puntuarPeliculaWS(float rating, int idPelicula){
+        Api apiPeliculas = peliculasApi.getPeliculasApi().create(Api.class);
+        Call<String> puntuarPeliculCall = apiPeliculas.ratePelicula(rating, idPelicula);
+        puntuarPeliculCall.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                Toast.makeText(getApplicationContext(), "Pelicula puntuada", Toast.LENGTH_SHORT).show();
+                valoracion.setEnabled(false);
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "Anormalidad detectada, y no ha sido en la app", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
 }

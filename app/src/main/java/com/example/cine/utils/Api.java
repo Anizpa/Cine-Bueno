@@ -25,6 +25,11 @@ public interface Api {
             @Query("imagen") String imagen
             );
 
+    @GET("Peliculas/cine")
+    Call<List<Peliculas>> getPeliculasCine(
+                 @Query("idCine") int idCine
+    );
+
     //REVISAR DATOS ENCAJAN CON API
     @GET("Peliculas/GETFICHA")
     Call<PeliculaFicha> getPeliculaFicha(@Query("id") int idPelicula);
@@ -35,6 +40,12 @@ public interface Api {
     @GET("Cines/GETFICHA")
     Call<List<Cines>> getCinesList();
 
-    @GET("/Entradas/add")
-    Call<String> addEntrada(@Query("idSala") int idSala, @Query("cantidad") int cantidad);
+    @GET("Entradas/add")
+    Call<String> addEntrada(@Query("idSala") int idSala, @Query("cantidad") int cantidad, @Query("salaCorreo") String salaCorreoJSON);
+
+    @GET("Peliculas/rate")
+    Call<String> ratePelicula(@Query("valoracion") float valoracion,
+                              @Query("idPelicula") int idPelicula);
+
+
 }
